@@ -1,4 +1,30 @@
 Rails.application.routes.draw do
+  
+  resources :employees do
+    # ../employees
+    collection do
+      get "highest_salary"
+    end
+    
+    member do
+      get "full_salary"
+    end
+    
+    collection do
+      get "over_20k"
+    end
+  end
+
+  #resources :employees
+  # get 'patients/show'
+
+  # get 'patients/new'
+
+  # get 'patients/create'
+  
+  resources :patients, only: [:show,:new,:create]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
